@@ -9,15 +9,19 @@ p 'Destroy all products'
 p 'Destroy all companies'
 Product.destroy_all
 Company.destroy_all
+User.destroy_all
 
+user1 = User.create(email: 'test@email.com', password: 'asdasd', password_confirmation: 'asdasd')
+user2 = User.create(email: 'test2@email.com', password: 'asdasd', password_confirmation: 'asdasd')
+user3 = User.create(email: 'test3@email.com', password: 'asdasd', password_confirmation: 'asdasd')
 
 categories = ['Shirt', 'Shoes', 'Pants']
 colors = ['White', "Red", "Yellow"]
 size = ['sm', 'md', 'lg', 'xl']
 description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum optio reprehenderit est ex dolorem ipsum! Voluptates omnis animi numquam ullam assumenda distinctio, vitae, magni dicta quis laboriosam dolorum. Dicta quas adipisci nam in commodi, explicabo aperiam. Rem dolore beatae deleniti commodi facere aliquid, odit voluptates adipisci dolorum sed? Tempora, soluta?'
-nike = Company.create!(name: 'nike inc', description: description, business_type: 'Retail', product_categories: categories)
-apple = Company.create!(name: 'Apple', description: description, business_type: 'Retail', product_categories: categories)
-cocacola = Company.create!(name: 'CocaCola', description: description, business_type: 'Retail', product_categories: categories)
+nike = Company.create!(name: 'nike inc', description: description, business_type: 'Retail', product_categories: categories, employees: [user1])
+apple = Company.create!(name: 'Apple', description: description, business_type: 'Retail', product_categories: categories, employees: [user2])
+cocacola = Company.create!(name: 'CocaCola', description: description, business_type: 'Retail', product_categories: categories, employees: [user3])
 
 p "Created #{Company.count} companies"
 companies = Company.all
