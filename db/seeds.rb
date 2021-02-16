@@ -19,9 +19,9 @@ categories = ['Shirt', 'Shoes', 'Pants', 'Sweater', 'T-shirt', 'Underwear', 'Swe
 colors = ['White', "Green", "Yellow", 'Blue', 'Brown', 'Grey', 'Black']
 size = ['sm', 'md', 'lg', 'xl']
 description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum optio reprehenderit est ex dolorem ipsum! Voluptates omnis animi numquam ullam assumenda distinctio, vitae, magni dicta quis laboriosam dolorum. Dicta quas adipisci nam in commodi, explicabo aperiam. Rem dolore beatae deleniti commodi facere aliquid, odit voluptates adipisci dolorum sed? Tempora, soluta?'
-nike = Company.create!(name: 'My Cloathing Store', description: description, business_type: 'Retail', product_categories: categories, employees: [user1])
-apple = Company.create!(name: 'Zara', description: description, business_type: 'Retail', product_categories: categories, employees: [user2])
-cocacola = Company.create!(name: 'Primark', description: description, business_type: 'Retail', product_categories: categories, employees: [user3])
+Company.create!(name: 'My Cloathing Store', description: description, business_type: 'Retail', product_categories: categories, employees: [user1.id])
+Company.create!(name: 'Zara', description: description, business_type: 'Retail', product_categories: categories, employees: [user2.id])
+Company.create!(name: 'Primark', description: description, business_type: 'Retail', product_categories: categories, employees: [user3.id])
 
 p "Created #{Company.count} companies"
 

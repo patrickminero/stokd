@@ -7,4 +7,10 @@ class Api::V1::ProductsController < Api::V1::BaseController
       @product = Product.find(params[:id])
       authorize @product
     end
+
+    private
+    
+    def companies_params
+      params.require(:product).permit(:name, :description, :price, :quantity, :category, :sku, attributes: {} )
+    end
   end
