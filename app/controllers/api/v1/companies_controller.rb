@@ -24,18 +24,19 @@ class Api::V1::CompaniesController < Api::V1::BaseController
   private
 
   def company_params
-    params.require(:company).permit(:product_categories, :description)
+    params.require(:company).permit(:description, product_categories: [])
   end
 
   def render_error
     render json: { errors: @company.errors.full_messages },
       status: :unprocessable_entity
   end
+
   def render_unathorized
     render json: { errors: @company.errors.full_messages, message: 'Not authorized' },
       status: :unprocessable_entity
-      
   end
+
   def set_company
     @company = Company.find(params[:id])
     authorize @company  # For Pundit
