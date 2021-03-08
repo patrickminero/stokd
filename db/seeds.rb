@@ -35,7 +35,7 @@ categories.each do |category|
         quantity: rand(30..100), 
         sku: rand(1000000..2000000).to_s, 
         name: "#{colors.sample} #{categories.sample}", 
-        features: {'size': size.sample},
+        features: {'size': size.sample, color: colors.sample},
         category: company.product_categories.sample, price: rand(5.00..100.00).ceil(2))
         p "Created #{product.name}"
     end
